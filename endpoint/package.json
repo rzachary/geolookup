@@ -1,0 +1,13 @@
+{
+  "name": "endpoint",
+  "version": "1.0.0",
+  "description": "Geolocation Endpoint for State, Zip, County API Data",
+  "main": "index.js",
+  "repository": "http://github.com/rzachary/geolookup",
+  "author": "rzachary",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.14"
+  }
+}
