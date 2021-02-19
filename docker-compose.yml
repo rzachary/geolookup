@@ -1,0 +1,33 @@
+version: '3'
+services:
+  api:
+    image: rzachary/geolocation/infrastructure/nodejs
+    build: .
+    networks:
+      - backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    volumes:
+      - ./data:/data/db
+    networks:
+      - backend
+    ports:
+      - "237017:27017"
+
+    balanceer:
+      images: rzachary/geolocation/infrastructure/nginx
+      build: .
+      networks:
+        - frontend
+        - backend
+
+  networks:
+    backend:
+      driver: bridge
+    frontend:
+      driver: bridge
