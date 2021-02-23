@@ -73,3 +73,19 @@ exports.list = (perPage, page) => {
 			})
 	});
 };
+
+exports.findByCountyName = (name) => {
+	return County.find({name: name});
+};
+
+exports.findByCountyId = (id) => {
+	return County.findById(id)
+		.then((result) => {
+			result = result.toJSON();
+			delete result._id;
+		});
+};
+
+exports.findCountyByStateName = (name) => {
+	
+}
